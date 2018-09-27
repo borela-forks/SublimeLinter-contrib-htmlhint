@@ -18,11 +18,13 @@ class Htmlhint(NodeLinter):
 
     """Provides an interface to htmlhint."""
 
-    syntax = 'html'
+    defaults = {
+        'selector': 'text.html'
+    }
     cmd = ('htmlhint', '--format', 'json', '--nocolor', 'stdin')
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 0.9.13'
+    version_requirement = '>= 1.9'
     # empty regex so plugin initializes properly
     regex = r''
     config_file = ('--config', '.htmlhintrc')
